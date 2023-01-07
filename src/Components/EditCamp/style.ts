@@ -35,7 +35,7 @@ export const Container = styled.section`
     border: 1px solid var(--whiteDarker);
     border-radius: 15px;
     padding: 1rem;
-    width: 260px;
+    max-width: 260px;
   }
 
   svg{

@@ -27,68 +27,21 @@ export const ContentTop = styled.div<ContainerProps>`
     padding: 0 10px;
   }
 
-  .contentTop--statusFields .contentTop--statusFields-select{
+  .contentTop--statusContent{
     display: flex;
-    width: 230px;
-    margin-top: 20px;
-
-
-    select{
-      width: 100%;
-      height: 30px;
-      text-align: center;
-      border-radius: 10px 10px 2px 2px;
-      background-color: var(--whiteLighter);
-      outline: 2px solid var(--primaryColor);
-      color: var(--blackLighter);
-      -webkit-appearance:none;
-      -moz-appearance:none;
-      -ms-appearance:none;
-      appearance:none;
-      box-shadow:none;
-      border:0!important;
-      background-image: none;
-      flex: 1;
-      padding: 0 .5em;
-      cursor:pointer;
-      font-size: 0.9em;
-      text-transform: uppercase;
-      transition: 0.15s;
-      position: relative;
-      z-index: 2;
-    }
-
-    &::after{
-      content: '';
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0 0 50% 50%;
-      width: 15px;
-      height: 15px;
-      background-color: var(--primaryColor);
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -8px;
-      z-index: 1;
-    }
-
-    select:hover{
-      filter: drop-shadow(0 0 3px var(--primaryColor));
-    }
-
-    select option:disabled{
-      color: var(--blackLighter)
-    }
-
-    select option{
-      color: var(--whiteDarker);
-      background-color: var(--blackLighter);
-    }
+    position: absolute;
+    top: -20px;
+    text-transform: uppercase;
+    width: 175px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.9em;
+    border-radius: 5px 5px 15px 15px;
+    outline: 4px solid var(--whiteColor);
+    cursor: pointer;
   }
-
-
 
   .contentTop--interactFields{
     background-color: green;
@@ -272,7 +225,11 @@ export const ContentBottom = styled.div<ContainerProps>`
     &:active p{
         filter: drop-shadow(0 0 3px var(--primaryColor));
     }
+
+
   }
+
+
 
   .contentBottom--times{
     margin-left: 5px;
@@ -350,27 +307,4 @@ export const ContentBottom = styled.div<ContainerProps>`
       color: var(--optionDecline);
     }
   }
-`
-
-
-type PropsContentStatus = {
-  statusContent: string
-  statusText: boolean
-}
-
-export const ContentStatus = styled.div<PropsContentStatus>`
-  background-color: ${(props) => props.statusContent};
-  display: flex;
-  position: absolute;
-  top: -20px;
-  text-transform: uppercase;
-  width: 175px;
-  height: 25px;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  font-size: 0.9em;
-  border-radius: 5px 5px 15px 15px;
-  outline: 4px solid var(--whiteColor);
-  cursor: pointer;
 `

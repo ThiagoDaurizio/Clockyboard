@@ -4,7 +4,7 @@ import { TypedTasks } from "../Types/taskType";
 import { useGlobalData } from "./GlobalDataContext";
 
 
-interface IProps {
+type Props = {
   children?: React.ReactNode
 }
 
@@ -19,7 +19,7 @@ interface InterfaceTasksContextProvider {
 
 const TasksContext = createContext({} as InterfaceTasksContextProvider)
 
-export const TasksContextProvider: React.FC<IProps> = ({children}) => {
+export const TasksContextProvider: React.FC<Props> = ({children}) => {
   const {dataTasks, updateDataTasks} = useGlobalData()
 
 

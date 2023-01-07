@@ -13,16 +13,18 @@ export type StatusColor = {
 
 export const getStatusColor = (status: string) => {
   const statusColor: any = {
-    none: ["#D9D9D9", true, "none"],
-    waitingCustomer: ["#DB00FF", false, "waiting-customer"],
-    waitingApproval: ['#E18700', false, "waiting-approval"],
-    waitingExternals: ['#7F6098', false, 'waiting-externals'],
-    qaInternal: ['#1400FF', false, 'qa-internal'],
-    qaCustomer: ['#ffc0cb', true, 'qa-external'],
-    working: ["#E3CD00", true, "working"],
-    paused: ['#FF0000', true, 'paused'],
-    deploy: ['#68CDE3', true, 'deploy'],
-    done: ["#88DF86", true, "done"],
+    none: ["#D9D9D9", 'black', "none"],
+    waitingCustomer: ["#DB00FF", 'white', "waiting-customer"],
+    waitingApproval: ['#E18700', 'white', "waiting-approval"],
+    waitingExternals: ['#7F6098', 'white', 'waiting-externals'],
+    qaInternal: ['#1400FF', 'black', 'qa-internal'],
+    qaCustomer: ['#ffc0cb', 'black', 'qa-external'],
+    working: ["#E3CD00", 'black', "working"],
+    deploy: ['#68CDE3', 'black', 'deploy'],
+    done: ["#88DF86", 'black', "done"],
+    paused: ['#FF0000', 'white', 'paused'],
+    prsended: ["#ae4b4b", 'white', 'pr-sended'],
+    other: ['#565656', 'white', 'other']
   }
 
   return statusColor[status] ? statusColor[status] : ['gray', false, 'other']

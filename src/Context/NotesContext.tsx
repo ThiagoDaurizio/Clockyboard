@@ -2,7 +2,7 @@ import { useGlobalData } from "./GlobalDataContext";
 import { createContext, useContext } from "react";
 import { TypedNotes } from "../Types/notesType";
 
-interface IProps {
+type Props = {
   children?: React.ReactNode
 }
 
@@ -17,7 +17,7 @@ interface InterfaceNotesContextProvicer {
 const NotesContext = createContext({} as InterfaceNotesContextProvicer)
 
 
-export const NotesContextProvider: React.FC<IProps> = ({children}) => {
+export const NotesContextProvider: React.FC<Props> = ({children}) => {
   const {dataNotes, updateDataNotes} = useGlobalData()
 
 

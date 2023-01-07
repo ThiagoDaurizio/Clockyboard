@@ -1,29 +1,24 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CompFormball } from '../../../Components/Formball'
 import { TypedTasks } from '../../../Types/taskType'
 import { CompTasksCard } from './Card'
 import * as Style from './style'
 import * as Base from '../../../Styles/ModalStyle'
-
 import { IoArrowRedo } from "react-icons/io5";
-import { CompToggle } from '../../../Components/Toggleball'
 import { CompEditCamp } from '../../../Components/EditCamp'
 import { ModalConfirm } from '../../../Components/Modal/ModalConfirm'
 import { idMaker } from '../../../Utilities/idMaker'
-// import { delete_task, post_task, put_taskEdit, put_taskStatus, put_taskTimer } from '../../../Data/Controllers/tasks'
 import { ModalPrompt } from '../../../Components/Modal/ModalPrompt'
-import { getStatusColor } from '../../../Utilities/statusColor'
 import { CompCountCamp } from '../../../Components/CountCamp'
-import { useGlobalData } from '../../../Context/GlobalDataContext'
 import { useTasksContext } from '../../../Context/TasksContext'
 import { useLabelsContext } from '../../../Context/LabelsContext'
+import { useStatusContext } from '../../../Context/StatusContext'
 
 
 export const PageTimers = () => {
   const { dataTasks, createTask, editTask, statusTask, timerTask, deleteTask } = useTasksContext()
   const { dataLabels } = useLabelsContext()
-
-  const [, set_dataTasks] = useState<TypedTasks[]>(dataTasks)
+  const { dataStatus } = useStatusContext()
 
   const [textFormball, set_textFormball] = useState<string>('')
 
@@ -46,10 +41,6 @@ export const PageTimers = () => {
   const [editToggleTaskLabel2, set_editToggleTaskLabel2] = useState<boolean>(false)
 
   const [watcher, set_watcher] = useState<number>(0)
-
-  useEffect(() => {
-    set_dataTasks(dataTasks)
-  }, [watcher])
 
   const modalReset = () => {
     set_inputTaskName('')
@@ -236,8 +227,6 @@ export const PageTimers = () => {
         openMore={true}
       />
 
-      <Style.ContentClient>
-      </Style.ContentClient>
       <Style.ContentTasks>
         <ul>
           {dataTasks?.map((task: TypedTasks) => 
@@ -245,8 +234,6 @@ export const PageTimers = () => {
               <CompTasksCard 
                 key={task.taskId}
                 task={task} 
-                dataTasks={dataTasks}
-                set_dataTasks={set_dataTasks}
                 handleEditTask={handleEditTask}
                 handleStatusTask={handleStatusTask}
                 handleTimerTask={handleTimerTask}
@@ -368,15 +355,22 @@ export const PageTimers = () => {
           backdropClose={true}
         >
           <Style.ModalStatusTask>
-            <button value='done' style={{backgroundColor: getStatusColor('done')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>Done</button>
-            <button value='working' style={{backgroundColor: getStatusColor('working')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>Working</button>
-            <button value='deploy' style={{backgroundColor: getStatusColor('deploy')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>Deploy</button>
-            <button value='qaInternal' style={{backgroundColor: getStatusColor('qaInternal')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>QA Internal</button>
-            <button value='none' style={{backgroundColor: getStatusColor('none')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>None</button>
-            <button value='qaCustomer' style={{backgroundColor: getStatusColor('qaCustomer')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>QA External</button>
-            <button value='waitingApproval' style={{backgroundColor: getStatusColor('waitingApproval')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>Waiting Approval</button>
-            <button value='waitingCustomer' style={{backgroundColor: getStatusColor('waitingCustomer')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>Waiting Customer</button>
-            <button value='waitingExternals' style={{backgroundColor: getStatusColor('waitingExternals')[0]}} onClick={(event: any) => handleStatusTask('send', event.target.value)}>Waiting Externals</button>
+            {dataStatus?.map((status) => {
+              return(
+                <button 
+                  value={status.id}
+                  style={{
+                    backgroundColor: status.color, 
+                    color: status.text ? 'black' : 'white', 
+                    outline: `4px solid ${status.color}`, 
+                    border: `2px solid ${status.color}`
+                  }}
+                  onClick={(event: any) => handleStatusTask('send', event.target.value)}
+                >
+                  {status.label}
+                </button>
+              )
+            })}
           </Style.ModalStatusTask>
         </ModalPrompt>
       )}
