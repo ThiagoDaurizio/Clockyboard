@@ -6,6 +6,7 @@ import { GlobalDataContextProvider } from '../Context/GlobalDataContext';
 import { TasksContextProvider } from '../Context/TasksContext';
 import { LabelContextProvider } from '../Context/LabelsContext';
 import { NotesContextProvider } from '../Context/NotesContext';
+import { StatusContextProvider } from '../Context/StatusContext';
 
 export const LocalStorageAppStart = {
   dataTasks: [],
@@ -17,17 +18,25 @@ export const App = () => {
   return (
     <GlobalDataContextProvider>
       <LabelContextProvider>
-        <TasksContextProvider>
-          <NotesContextProvider>
-            <Style.Container>
-              <CompSidebar/>
-              <Style.Content>
-                <Router/>
-              </Style.Content>
-              <GlobalStyle/>
-            </Style.Container>
-          </NotesContextProvider>
-        </TasksContextProvider>
+        <StatusContextProvider>
+          <TasksContextProvider>
+            <NotesContextProvider>
+
+
+              <Style.Container>
+                <CompSidebar/>
+
+                <Style.Content>
+                  <Router/>
+                </Style.Content>
+
+                <GlobalStyle/>
+              </Style.Container>
+
+
+            </NotesContextProvider>
+          </TasksContextProvider>
+        </StatusContextProvider>
       </LabelContextProvider>
     </GlobalDataContextProvider>
   );

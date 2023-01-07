@@ -3,7 +3,7 @@ import { TypedTasks } from "../Types/taskType";
 import { useGlobalData } from "./GlobalDataContext";
 
 
-interface IProps {
+type Props = {
   children?: React.ReactNode
 }
 
@@ -15,7 +15,7 @@ interface InterfaceLabelContextProvider {
 
 const LabelContext = createContext({} as InterfaceLabelContextProvider)
 
-export const LabelContextProvider: React.FC<IProps> = ({children}) => {
+export const LabelContextProvider: React.FC<Props> = ({children}) => {
   const {dataLabels, updateDataLabels} = useGlobalData()
 
   const editLabel1 = (body: string[]) => {

@@ -35,13 +35,5 @@ export const findActualTime = (TimeAdd: number[], TimeDiscount: number[]) => {
 
   let finalResult = totalAdded - totalDiscounted
 
-  // let valueColor
-
-  // if(finalResult < 0){
-  //   valueColor: 'outRadioTime'
-  // } else{
-  //   valueColor: 'inRadioTime'
-  // }
-
   return turnMinutesInHour(finalResult)
 }

@@ -1,24 +1,9 @@
 import styled from "styled-components";
-import { TypedClients } from "../../../Types/taskType";
 
 
 export const Container = styled.div`
 
 
-`
-
-
-export const ContentClient = styled.div`
-  /* background-color: var(--whiteColor);
-  color: var(--blackColor);
-  width: fit-content;
-  height: fit-content;
-  position: relative;
-  padding: 0.25rem;
-  border-radius: '5px 5px 40px 5px';
-  transition: 0.15s;
-  transition: border-radius 0.45s;
-  margin: 15px 0; */
 `
 
 

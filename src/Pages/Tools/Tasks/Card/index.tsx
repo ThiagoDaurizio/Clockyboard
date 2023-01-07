@@ -1,17 +1,15 @@
 import * as Styled from './style'
-import React, { useEffect, useState, useContext, SyntheticEvent } from 'react'
-import { TypedClients, TypedTasks } from "../../../../Types/taskType"
+import React, { useState, useEffect } from 'react'
+import { TypedTasks } from "../../../../Types/taskType"
 import { IoOpenOutline, IoAlarmOutline, IoTrashBinOutline } from "react-icons/io5";
 import { findActualTime, turnMinutesInHour } from '../../../../Utilities/timeSetup';
-import { getStatusColor } from '../../../../Utilities/statusColor';
-// import { put_timers } from '../../../../Data/Controllers/tasks';
-// import { get_data } from '../../../../Data/Controllers/getData';
 import { useLabelsContext } from '../../../../Context/LabelsContext';
+import { useStatusContext } from '../../../../Context/StatusContext';
+import { TypedStatus } from '../../../../Types/statusType';
+import { useTasksContext } from '../../../../Context/TasksContext';
 
 type Props = {
   task: TypedTasks
-  dataTasks: TypedTasks[]
-  set_dataTasks: React.Dispatch<React.SetStateAction<TypedTasks[]>>
   handleEditTask: (step: string, task: TypedTasks) => void
   handleStatusTask: (step: string, task: TypedTasks) => void
   handleTimerTask: (step: string, task: TypedTasks) => void
@@ -20,19 +18,24 @@ type Props = {
 
 export const CompTasksCard = ({
     task, 
-    dataTasks, 
-    set_dataTasks,
     handleEditTask,
     handleStatusTask,
     handleTimerTask,
     handleDeleteTask
   }:Props ) => {
   const { dataLabels } = useLabelsContext()
-
+  const { dataStatus } = useStatusContext()
+  const { dataTasks } = useTasksContext()
+  const [labelStatus, set_labelStatus] = useState({} as TypedStatus | undefined)
   const [taskTimesAdd, set_taskTimesAdd] = useState<number[]>(task.timesheetAdd)
   const [taskTimesDiscount, set_taskTimesDiscount] = useState<number[]>(task.timesheetDiscount)
-
   const [isOpen, set_isOpen] = useState<boolean>(false)
+
+  useEffect(() => {
+    set_labelStatus(dataStatus.find((status) => status.id === task.taskStatus))
+    set_taskTimesAdd(task.timesheetAdd)
+    set_taskTimesDiscount(task.timesheetDiscount)
+  }, [dataTasks])
 
   const handleOpenDisplay = () => {
     set_isOpen(!isOpen)
@@ -83,18 +86,20 @@ export const CompTasksCard = ({
     }
   }
 
-
   return(
     <Styled.Container isOpen={isOpen}>
       <Styled.ContentTop isOpen={isOpen}>
         <div className='contentTop--statusFields'>
-          <Styled.ContentStatus 
-            statusContent={getStatusColor(task.taskStatus)[0]} 
-            statusText={getStatusColor(task.taskStatus)[1]}
+          <div
+            className='contentTop--statusContent'
+            style={{
+              backgroundColor: labelStatus?.color ? labelStatus.color : 'gray', 
+              color: labelStatus?.text ? 'black' : 'white'
+            }}
             onClick={() => handleBoxInteract('status')}
           >
-            <p>{getStatusColor(task.taskStatus)[2].replace('-', ' ')}</p>
-          </Styled.ContentStatus>
+            <p>{labelStatus?.label}</p>
+          </div>
         </div>
 
         <div className='contentTop--interactFields'>

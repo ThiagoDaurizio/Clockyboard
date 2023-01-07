@@ -1,9 +1,3 @@
-export type TypedClients = {
-  clientId: string
-  clientName: string
-  clientTasks: TypedTasks[]
-}
-
 export type TypedTasks = {
   taskId: string
   taskName: string
