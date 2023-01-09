@@ -145,6 +145,20 @@ export const SettingsModalCreateStatus = styled.div`
     }
   }
 
+  .content--palletes{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .content--palletes-card{
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--darker);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
   .content--text{
     display: flex;
     flex-direction: column;
@@ -213,6 +227,20 @@ export const SettingsModalEditStatus = styled.div`
       cursor: pointer;
       margin: auto;
     }
+  }
+
+  .content--palletes{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .content--palletes-card{
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--darker);
+    border-radius: 5px;
+    cursor: pointer;
   }
 
   .content--text{

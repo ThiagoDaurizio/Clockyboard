@@ -12,6 +12,22 @@ import { ModalConfirm } from '../../../../Components/Modal/ModalConfirm'
 import { ModalAlert } from '../../../../Components/Modal/ModalAlert'
 
 
+const statusColors: string[] = [
+  '#D9D9D9', 
+  '#ffc0cb',
+  '#DB00FF', 
+  '#7F6098',
+  '#1400FF',
+  '#68CDE3',
+  '#88DF86',
+  '#E3CD00',
+  '#E18700', 
+  '#FF0000',
+  '#ae4b4b',
+  '#565656'
+]
+
+
 export const SettingsToStatus = () => {
   const { dataStatus, createStatus, editStatus, deleteStatus } = useStatusContext()
   const [statusInfo, set_statusInfo] = useState({} as TypedStatus)
@@ -64,6 +80,19 @@ export const SettingsToStatus = () => {
   const handleCreateStatus = (step: string) => {
     if(step === 'modal'){
       modalStatusControl('create', true)
+
+      const generateRandomColor = () => {
+        let maxVal = 0xFFFFFF
+        let randomNumber: any = Math. random() * maxVal
+
+        randomNumber = Math. floor(randomNumber)
+        randomNumber = randomNumber. toString(16)
+
+        let randColor = randomNumber. padStart(6, 0)
+        return `#${randColor. toUpperCase()}`
+      }
+
+      set_inputStatusColor(generateRandomColor())
     }
     if(step === 'send'){
       const body = {
@@ -173,7 +202,6 @@ export const SettingsToStatus = () => {
         )
       })}
 
-
       {modalOnCreateStatus &&(
         <ModalPrompt
           modalOpened={modalOnCreateStatus}
@@ -202,6 +230,18 @@ export const SettingsToStatus = () => {
                 value={inputStatusColor}
                 onChange={(event) => set_inputStatusColor(event.target.value)}
               />
+            </section>
+
+            <section className='content--palletes'>
+              {statusColors.map((color, key) => {
+                return(
+                  <span 
+                    className='content--palletes-card' style={{backgroundColor: color}}
+                    key={key}
+                    onClick={() => set_inputStatusColor(color)}
+                  />
+                )
+              })}
             </section>
 
             <section className='content--text'>
@@ -252,6 +292,18 @@ export const SettingsToStatus = () => {
                 value={inputStatusColor}
                 onChange={(event) => set_inputStatusColor(event.target.value)}
               />
+            </section>
+
+            <section className='content--palletes'>
+              {statusColors.map((color, key) => {
+                return(
+                  <span 
+                    className='content--palletes-card' style={{backgroundColor: color}}
+                    key={key}
+                    onClick={() => set_inputStatusColor(color)}
+                  />
+                )
+              })}
             </section>
 
             <section className='content--text'>
