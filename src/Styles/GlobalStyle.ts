@@ -36,8 +36,6 @@ export default createGlobalStyle`
 
     --optionAccept: #00e676;
     --optionDecline: #e65100;
-
-    --background: url('https://w0.peakpx.com/wallpaper/554/709/HD-wallpaper-sci-fi-city.jpg');
   }
 
   html{

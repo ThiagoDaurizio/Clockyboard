@@ -3,10 +3,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  background-color: var(--blackColor);
+  background-color: ${(props) => props.theme.blackColor};
   user-select: none;
-  /* background-image: var(--background); */
-  background-image: url('https://p4.wallpaperbetter.com/wallpaper/739/183/749/distant-planet-planet-space-3d-wallpaper-preview.jpg');
+  background-image: ${(props) => props.theme.backgroundImage};
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -16,5 +15,5 @@ export const Container = styled.div`
 export const Content = styled.div`
   padding: 20px;
   width: 100%;
-  color: var(--textColor)
+  color: ${(props) => props.theme.textLighter}
 `

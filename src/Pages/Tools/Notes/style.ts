@@ -28,9 +28,9 @@ export const ModalCreateNote = styled.div`
     gap: 1rem;
 
     input{
-      border: 1px solid var(--whiteDarker);
-      background-color: var(--blackLighter);
-      color: var(--primaryColor);
+      background-color: ${(props) => props.theme.neutralMedium};
+      color: ${(props) => props.theme.textColor};
+      border: 1px solid ${(props) => props.theme.lineColor};
       border-radius: 15px;
       padding: 5px 10px;
       position: relative;
@@ -40,8 +40,7 @@ export const ModalCreateNote = styled.div`
       width: 100%;
     
       &:focus{
-        border: 1px solid var(--primaryColor);
-        color: var(--whiteDarker);
+        color: ${(props) => props.theme.textLighter};
       }
     }
 
@@ -65,7 +64,7 @@ export const ModalCreateNote = styled.div`
     }
 
     .modal--createNote-toggle p._active{
-      color: var(--primaryColor);
+      color: ${(props) => props.theme.textColor};
       opacity: 1;
     }
   }
@@ -105,31 +104,8 @@ export const ModalEditNote = styled.div`
     }
 
     p._title{
-      color: var(--primaryColor);
+      color: ${(props) => props.theme.textColor};
       font-weight: 500;
-    }
-
-    input {
-      border: 1px solid black;
-      width: 100%;
-      height: 100%;
-      background-color: var(--blackLighter);
-      color: var(--whiteDarker);
-      border: 1px solid var(--whiteDarker);
-      border-radius: 15px;
-      padding: 1rem;
-    }
-
-    svg{
-      font-size: 1.75em;
-      color: var(--primaryColor);
-      cursor: pointer;
-      transition: 0.35s;
-
-      &:hover{
-        filter: drop-shadow(0 0 2px var(--whiteDarker));
-        transform: translateY(-3px);
-      }
     }
   }
 `

@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
 
-.theme--container{
-    background-color: var(--whiteColor);
+  .theme--container{
+    background-color: ${(props) => props.theme.neutralLighter};
     width: 200px;
     height: 225px;
     border-radius: 15px;
@@ -13,40 +13,40 @@ export const Container = styled.div`
     gap: 1rem;
   }
 
-  .theme--container .theme--top{
-    color: var(--blackColor);
+  .theme--top{
+    color: ${(props) => props.theme.textDarker};
     margin: 0 auto;
   }
 
-  .theme--container .theme--bottom{
+  .theme--bottom{
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 
-  .theme--container .theme--bottom .theme--bottom-section{
+  .theme--bottom-section{
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
-  .theme--container .theme--bottom .theme--bottom-section span{
+  .theme--bottom-section span{
     width: 25px;
     height: 25px;
     cursor: pointer;
-    outline: 1px solid var(--blackColor);
+    border: 1px solid ${(props) => props.theme.lineDarker};
     border-radius: 5px;
   }
 
-  .theme--container .theme--bottom .theme--bottom-section p{
-    color: var(--blackColor);
+  .theme--bottom-section p{
+    color: ${(props) => props.theme.textDarker};
   }
 
-  .theme--container .theme--bottom .theme--bottom-section .theme--opt1{
+  .theme--opt1{
     background-color: #2196f3;
   }
 
-  .theme--container .theme--bottom .theme--bottom-section .theme--opt2{
+  .theme--opt2{
     background: #81c784
   }
 `

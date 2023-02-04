@@ -10,6 +10,7 @@ import { ModalConfirm } from '../../../Components/Modal/ModalConfirm'
 import { IoOpenOutline, IoCheckmarkDoneOutline } from "react-icons/io5"
 import { useNotesContext } from '../../../Context/NotesContext'
 import { idMaker } from '../../../Utilities/idMaker'
+import { CompEditCamp } from '../../../Components/EditCamp'
 
 
 export const PageNotes = () => {
@@ -157,7 +158,7 @@ export const PageNotes = () => {
         important: note.important ? false : true,
         text: note.text,
         subText1: note.subText1,
-        subText2: note.subText1,
+        subText2: note.subText2,
       }
 
       markNote(body)
@@ -295,27 +296,12 @@ export const PageNotes = () => {
                 toggle={inputToggleTitle}
                 set_toggle={set_inputToggleTitle}
               />
-              {editToggleTitle ?
-                null
-                :
-                <IoOpenOutline onClick={() => set_editToggleTitle(true)}/>
-              }
-
-              {editToggleTitle ? 
-                  <input
-                    value={inputTitle}
-                    onChange={(event) => set_inputTitle(event.target.value)}
-                    placeholder={'write something...'}
-                  />
-                :
-                <p className={inputToggleTitle ? '_title' : ''}>{inputTitle}</p>
-              }
-
-              {editToggleTitle ?
-                <IoCheckmarkDoneOutline onClick={() => set_editToggleTitle(false)}/>
-                :
-                null
-              }
+              <CompEditCamp 
+                campText={inputTitle}
+                set_campText={set_inputTitle}
+                editToggle={editToggleTitle}
+                set_editToggle={set_editToggleTitle}
+              />
             </section>
 
             <section>
@@ -324,89 +310,31 @@ export const PageNotes = () => {
                   set_toggle={set_inputToggleText1}
                 />
                 {inputToggleText1 ?
-                  <>
-                    {editToggleText1 ?
-                      null
-                      :
-                      <IoOpenOutline onClick={() => set_editToggleText1(true)}/>
-                    }
-                  </>
-                    :
-                    null
-                }
-
-                {inputToggleText1 ? 
-                  <>
-                    {editToggleText1 ? 
-                      <input
-                      value={inputText1}
-                      onChange={(event) => set_inputText1(event.target.value)}
-                      placeholder={'write something...'}
-                      />
-                      :
-                      <p>{inputText1}</p>
-                    }
-                  </>
-                  :
-                  null
-                }
-
-                {inputToggleText1 ? 
-                  <>
-                    {editToggleText1 ?
-                      <IoCheckmarkDoneOutline onClick={() => set_editToggleText1(false)}/>
-                      :
-                      null
-                    }
-                  </>
-                  :
-                  null
-                }
+                  <CompEditCamp 
+                    campText={inputText1}
+                    set_campText={set_inputText1}
+                    editToggle={editToggleText1}
+                    set_editToggle={set_editToggleText1}
+                  />
+                :
+                null}
             </section>
 
             <section>
               <CompToggle 
-                  toggle={inputToggleText2}
-                  set_toggle={set_inputToggleText2}
-                />
-                {inputToggleText2 ?
-                  <>
-                    {editToggleText2 ?
-                      null
-                      :
-                      <IoOpenOutline onClick={() => set_editToggleText2(true)}/>
-                    }
-                  </>
-                  :
-                  null
-                }
+                toggle={inputToggleText2}
+                set_toggle={set_inputToggleText2}
+              />
 
-                {inputToggleText2 ?
-                  <>
-                    {editToggleText2 ? 
-                        <input
-                          value={inputText2}
-                          onChange={(event) => set_inputText2(event.target.value)}
-                          placeholder={'write something...'}
-                        />
-                      :
-                      <p>{inputText2}</p>
-                    }
-                  </>
-                  :
-                  null  
-                }
-                {inputToggleText2 ? 
-                <>
-                  {editToggleText2 ?
-                    <IoCheckmarkDoneOutline onClick={() => set_editToggleText2(false)}/>
-                    :
-                    null
-                  }
-                </>
-                :
-                null
-                }
+              {inputToggleText2 ?
+                <CompEditCamp 
+                  campText={inputText2}
+                  set_campText={set_inputText2}
+                  editToggle={editToggleText2}
+                  set_editToggle={set_editToggleText2}
+                />
+              :
+              null}
             </section>
 
             <section>

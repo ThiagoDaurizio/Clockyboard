@@ -7,6 +7,9 @@ import { TasksContextProvider } from '../Context/TasksContext';
 import { LabelContextProvider } from '../Context/LabelsContext';
 import { NotesContextProvider } from '../Context/NotesContext';
 import { StatusContextProvider } from '../Context/StatusContext';
+import { ThemeProvider } from 'styled-components';
+import { useState } from 'react';
+import { themeClassic } from '../Themes/colors';
 
 export const LocalStorageAppStart = {
   dataTasks: [],
@@ -15,29 +18,32 @@ export const LocalStorageAppStart = {
 }
 
 export const App = () => {
+  const [theme, set_theme] = useState(themeClassic)
   return (
-    <GlobalDataContextProvider>
-      <LabelContextProvider>
-        <StatusContextProvider>
-          <TasksContextProvider>
-            <NotesContextProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalDataContextProvider>
+        <LabelContextProvider>
+          <StatusContextProvider>
+            <TasksContextProvider>
+              <NotesContextProvider>
 
 
-              <Style.Container>
-                <CompSidebar/>
+                <Style.Container>
+                  <CompSidebar/>
 
-                <Style.Content>
-                  <Router/>
-                </Style.Content>
+                  <Style.Content>
+                    <Router/>
+                  </Style.Content>
 
-                <GlobalStyle/>
-              </Style.Container>
+                  <GlobalStyle/>
+                </Style.Container>
 
 
-            </NotesContextProvider>
-          </TasksContextProvider>
-        </StatusContextProvider>
-      </LabelContextProvider>
-    </GlobalDataContextProvider>
+              </NotesContextProvider>
+            </TasksContextProvider>
+          </StatusContextProvider>
+        </LabelContextProvider>
+      </GlobalDataContextProvider>
+    </ThemeProvider>
   );
 }

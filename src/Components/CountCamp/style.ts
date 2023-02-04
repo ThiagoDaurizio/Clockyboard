@@ -10,7 +10,7 @@ export const Container = styled.div`
     margin: auto;
 
     &:hover p{
-      outline: 2px solid var(--primaryColor);
+      outline: 2px solid ${(props) => props.theme.primaryColor};
       font-size: 1.25em;
     }
 
@@ -19,8 +19,8 @@ export const Container = styled.div`
       min-width: fit-content;
       height: 30px;
       padding: 0.25rem 1rem;
-      background-color: var(--blackLighter);
-      color: var(--primaryColor);
+      background-color: ${(props) => props.theme.blackLighter};
+      color: ${(props) => props.theme.primaryColor};
       font-weight: 500;
       font-size: 1.2em;
       border-radius: 5px;
@@ -35,15 +35,15 @@ export const Container = styled.div`
       height: 25px;
       min-width: 25px;
       min-height: 25px;
-      background-color: var(--primaryColor);
-      color: var(--whiteColor);
+      background-color: ${(props) => props.theme.primaryColor};
+      color: ${(props) => props.theme.whiteColor};
       font-size: 1.35em;
       transition: 0.35s;
       cursor: pointer;
-      outline: 1px solid var(--primaryLighter);
+      outline: 1px solid ${(props) => props.theme.primaryLighter};
 
       &:active{
-        filter: drop-shadow(0 0 2px var(--primaryColor));
+        filter: drop-shadow(0 0 2px ${(props) => props.theme.primaryColor});
       }
     }
 

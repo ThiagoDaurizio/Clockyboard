@@ -14,14 +14,14 @@ export const Container = styled.div<PropsContainer>`
     justify-content: center;
     width: 30px;
     height: 30px;
-    background-color: var(--primaryColor);
+    background-color: ${(props) => props.theme.primaryColor};
     border-radius: ${(props) => props.inputOpened ? '15px 0 0 15px' : '50%'};
     font-size: 2em;
     font-weight: 300;
-    outline: 1px solid var(--primaryLighter);
+    outline: 1px solid ${(props) => props.theme.lineLighter};
     cursor: pointer;
     transition: 0.15s;
-    color: var(--whiteColor)
+    color: ${(props) => props.theme.textLighter};
   }
 
   form{
@@ -36,13 +36,13 @@ export const Container = styled.div<PropsContainer>`
     transition: width 0.05s;
     border-radius: 0 15px 15px 0;
     padding: ${(props) => props.inputOpened ? '0 10px' : '0px'};
-    color: var(--primaryLighter);
+    color: ${(props) => props.theme.textColor};
     font-size: 1.1em;
     background-color: var(--blackLighter);
   }
 
   form input:focus{
-    outline: ${(props) => props.inputOpened ? '1px solid var(--primaryColor)' : 'none'};
+    outline: ${(props) => props.inputOpened ? `1px solid var(--primaryColor)` : 'none'};
   }
   
   .btn--open{
@@ -50,12 +50,12 @@ export const Container = styled.div<PropsContainer>`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--blackDarker);
+    background-color: ${(props) => props.theme.blackDarker};
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    color: var(--primaryColor);
-    outline: 1px solid var(--whiteDarker);
+    color: ${(props) => props.theme.textColor};
+    outline: 1px solid ${(props) => props.theme.whiteDarker};
     font-weight: 400;
     font-size: 0.9em;
     cursor: pointer;
@@ -63,12 +63,12 @@ export const Container = styled.div<PropsContainer>`
 
 
     &:hover{
-      background-color: var(--primaryColor);
-      filter: drop-shadow(0 0 1px var(--primaryColor));
+      background-color: ${(props) => props.theme.primaryColor};
+      filter: drop-shadow(0 0 1px ${(props) => props.theme.shadowColor});
       transform: translateX(-10px) scale(1.15);
 
       svg{
-        color: var(--blackColor);
+        color: ${(props) => props.theme.textDarker};
       }
     }
   }

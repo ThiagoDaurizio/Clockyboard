@@ -17,13 +17,13 @@ export const Sidebar = styled.div`
   width: 50px;
   
   .sidebar{
-    background-color: var(--blackDarker);
+    background-color: ${(props) => props.theme.sidebarBackground};
     width: 100%;
     padding: 1rem;
     transition: 0.35s;
     height: 100%;
     overflow: hidden;
-    border-right: 1px solid var(--primaryColor);
+    border-right: 1px solid ${(props) => props.theme.lineColor};
   }
 
   .sidebar ul{
@@ -46,53 +46,51 @@ export const Sidebar = styled.div`
   }
 
   .sidebar ul li.active{
-    background-color: var(--primaryColor);
-    border: 1px solid var(--whiteColor);
+    background-color: ${(props) => props.theme.primaryColor};
+    border: 1px solid ${(props) => props.theme.lineLighter};
   }
 
   .sidebar ul li.active a svg{
-    filter: drop-shadow(0 0 1px var(--primaryLighter));
+    filter: drop-shadow(0 0 1px ${(props) => props.theme.shadowLighter});
   }
   
   .sidebar ul li:hover{
-    outline: 1px solid var(--primaryColor);
-    border: 1px solid var(--primaryColor);
+    border: 3px solid ${(props) => props.theme.lineColor};
     transform: translateX(5px);
-    background-color: var(--whiteColor);
+    background-color: ${(props) => props.theme.neutralLighter};
 
     svg{
-      color: var(--primaryDarker);
+      color: ${(props) => props.theme.textColor};
     }
 
     p{
-      color: var(--blackColor);
+      color: ${(props) => props.theme.textDarker};
     }
   }
 
   .sidebar ul li:hover.active{
-    outline: 1px solid var(--primaryColor);
-    border: 1px solid var(--primaryColor);
+    border: 3px solid ${(props) => props.theme.lineColor};
     transform: translateX(5px);
-    background-color: var(--primaryColor);
+    background-color: ${(props) => props.theme.primaryColor};
 
     svg{
-      color: var(--whiteColor);
+      color: ${(props) => props.theme.textLighter};
     }
 
     p{
-      color: var(--blackColor);
+      color: ${(props) => props.theme.textDarker};
     }
   }
 
   .sidebar ul li.active a{
-    color: var(--blackDarker);
+    color: ${(props) => props.theme.textDarker};
   }
 
   .sidebar ul li a{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--primaryColor);
+    color: ${(props) => props.theme.textColor};
     text-decoration: none;
   }
 

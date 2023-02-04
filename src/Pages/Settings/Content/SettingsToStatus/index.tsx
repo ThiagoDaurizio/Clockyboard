@@ -223,6 +223,18 @@ export const SettingsToStatus = () => {
               />
             </section>
 
+            <section className='content--text'>
+              <label>Status Text color:</label>
+
+              <div className='content--text-toggle'>
+                <CompToggle
+                  toggle={inputStatusText}
+                  set_toggle={set_inputStatusText}
+                  />
+                <p style={{color: inputStatusText ? 'white' : 'black'}}>text</p>
+              </div>
+            </section>
+
             <section className='content--color'>
               <label>Status Background color: <span>{inputStatusColor}</span></label>
               <input 
@@ -242,18 +254,6 @@ export const SettingsToStatus = () => {
                   />
                 )
               })}
-            </section>
-
-            <section className='content--text'>
-              <label>Status Text color:</label>
-
-              <div className='content--text-toggle'>
-                <CompToggle
-                  toggle={inputStatusText}
-                  set_toggle={set_inputStatusText}
-                  />
-                <p style={{color: inputStatusText ? 'white' : 'black'}}>text</p>
-              </div>
             </section>
 
             <section className='content--btn'>
@@ -285,6 +285,18 @@ export const SettingsToStatus = () => {
               />
             </section>
 
+            <section className='content--text'>
+              <label>Status Text color:</label>
+
+              <div className='content--text-toggle'>
+                <CompToggle
+                  toggle={inputStatusText}
+                  set_toggle={set_inputStatusText}
+                  />
+                <p style={{color: inputStatusText ? 'white' : 'black'}}>text</p>
+              </div>
+            </section>
+
             <section className='content--color'>
               <label>Status Background color: <span>{inputStatusColor}</span></label>
               <input 
@@ -304,18 +316,6 @@ export const SettingsToStatus = () => {
                   />
                 )
               })}
-            </section>
-
-            <section className='content--text'>
-              <label>Status Text color:</label>
-
-              <div className='content--text-toggle'>
-                <CompToggle
-                  toggle={inputStatusText}
-                  set_toggle={set_inputStatusText}
-                  />
-                <p style={{color: inputStatusText ? 'white' : 'black'}}>text</p>
-              </div>
             </section>
 
             <section className='content--btn'>

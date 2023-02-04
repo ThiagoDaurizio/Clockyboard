@@ -23,7 +23,7 @@ export const ModalContent = styled.div<PropsModalContent>`
   width: ${(props) => props.modalWidth + 'px'};
   height: fit-content;
   min-height: ${(props) => props.modalHeight + 'px'};
-  background-color: var(--whiteColor);
+  background-color: ${(props) =>  props.theme.modalBackground};
   border-radius: 25px;
   padding: 5px;
   display: flex;

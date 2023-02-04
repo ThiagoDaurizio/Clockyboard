@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   .content--settings{
-    background-color: var(--whiteColor);
-    color: var(--blackColor);
+    background-color: ${(props) => props.theme.neutralLighter};
+    color: ${(props) => props.theme.textDarker};
     margin-top: 1rem;
     min-width: 200px;
     width: fit-content;
@@ -16,11 +16,11 @@ export const Container = styled.div`
     align-items: center;
 
     button{
-      background-color: var(--primaryColor);
+      background-color: ${(props) => props.theme.primaryColor};
       padding: 10px 5px;
       border-radius: 15px;
-      color: var(--whiteColor);
-      border: 1px solid var(--primaryLighter);
+      color: ${(props) => props.theme.textLighter};
+      border: 1px solid ${(props) => props.theme.textLighter};
       cursor: pointer;
       width: 100%;
     }

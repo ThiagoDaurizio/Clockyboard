@@ -23,16 +23,16 @@ export const Container = styled.section`
   }
 
   p._title{
-    color: var(--primaryColor);
+    color: ${(props) => props.theme.textColor};
     font-weight: 500;
   }
 
   input {
     width: 100%;
     height: 100%;
-    background-color: var(--blackLighter);
-    color: var(--whiteDarker);
-    border: 1px solid var(--whiteDarker);
+    background-color: ${(props) => props.theme.blackLighter};
+    color: ${(props) => props.theme.textLighter};
+    border: 1px solid ${(props) => props.theme.lineLighter};
     border-radius: 15px;
     padding: 1rem;
     max-width: 260px;
@@ -40,12 +40,12 @@ export const Container = styled.section`
 
   svg{
     font-size: 1.75em;
-    color: var(--primaryColor);
+    color: ${(props) => props.theme.textColor};
     cursor: pointer;
     transition: 0.35s;
 
     &:hover{
-      filter: drop-shadow(0 0 2px var(--whiteDarker));
+      filter: drop-shadow(0 0 2px ${(props) => props.theme.shadowDarker});
       transform: translateY(-3px);
     }
   }
