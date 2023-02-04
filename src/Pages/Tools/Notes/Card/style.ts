@@ -6,7 +6,7 @@ export const Container = styled.div`
   max-width: 90vw;
   display: flex;
   gap: 1rem;
-  color: var(--blackColor);
+  color: ${(props) => props.theme.textDarker};
   margin: 1rem 0;
 `
 
@@ -18,10 +18,9 @@ export const Content = styled.div<PropsContent>`
   width: 100%;
   min-height: 50px;
   height: 100%;
-  background-color: var(--whiteColor);
+  background-color: ${(props) => props.theme.neutralLighter};
   border-radius: 10px;
   padding: 1rem 0.5rem;
-  outline: ${(props) => props.isImportant ? '3px solid var(--primaryColor)' : 'none'};
   position: relative;
   transition: 0.25s;
   
@@ -34,24 +33,24 @@ export const Content = styled.div<PropsContent>`
   }
   
   p:hover{
-    filter: drop-shadow(0 0 1px var(--whiteDarker));
+    filter: drop-shadow(0 0 1px ${(props) => props.theme.neutralColor});
     cursor: pointer;
   }
   
   .text{
-    color: var(--blackColor);
+    color: ${(props) => props.theme.textDarker};
   }
 
   .title{
-    color: var(--primaryColor);
+    color: ${(props) => props.theme.textColor};
     font-size: 1.1em;
     font-weight: 400;
     padding: 0 10px;
   }
 
   p:active{
-    color: var(--primaryLighter);
-    filter: drop-shadow(0 0 2px var(--primaryLighter));
+    color: ${(props) => props.theme.textColor};
+    filter: drop-shadow(0 0 2px ${(props) => props.theme.shadowColor});
   }
 
   .content--heart{
@@ -59,8 +58,8 @@ export const Content = styled.div<PropsContent>`
     top: -15px;
     right: -15px;
     font-size: 2em;
-    color: var(--primaryColor);
-    filter: drop-shadow(0 0 2px var(--blackLighter));
+    color: ${(props) => props.theme.textColor};
+    filter: drop-shadow(0 0 2px ${(props) => props.theme.shadowColor});
   }
 
   &:hover{
@@ -73,13 +72,13 @@ type PropsInteract = {
 }
 
 export const Interact = styled.div<PropsInteract>`
+  background-color: ${(props) => props.theme.neutralLighter};
   width: ${(props) => props.boxOpened ? '125px' : '25px'};
   min-width: ${(props) => props.boxOpened ? '125px' : '25px'};
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--whiteColor);
   border-radius: 10px;
   padding: 1rem 0.5rem;
   transition: 0.35s;
@@ -87,6 +86,10 @@ export const Interact = styled.div<PropsInteract>`
   z-index: 1;
 
   span{
+    background-color: ${(props) => props.theme.neutralDarker};
+    color: ${(props) => props.theme.textLighter};
+    border: 2px solid ${(props) => props.theme.neutralDarker};
+    transition: 0.35s;
     position: absolute;
     display: flex;
     align-items: center;
@@ -95,17 +98,13 @@ export const Interact = styled.div<PropsInteract>`
     width: ${(props) => props.boxOpened ? '30px' : '5px'};
     height: ${(props) => props.boxOpened ? '30px' : '5px'};
     border-radius: 50%;
-    background-color: var(--blackDarker);
-    transition: 0.35s;
-    color: var(--whiteColor);
-    border: 2px solid var(--blackColor);
     cursor: pointer;
     z-index: 2;
   }
 
   span:hover{
-    color: var(--blackColor);
-    background-color: var(--primaryColor);
+    background-color: ${(props) => props.theme.primaryColor};
+    color: ${(props) => props.theme.textDarker};
   }
 
   span:nth-child(1){
@@ -120,7 +119,7 @@ export const Interact = styled.div<PropsInteract>`
 export const Separator = styled.div`
   height: 1px;
   width: 90%;
-  background-color: var(--whiteDarker);
+  background-color: ${(props) => props.theme.neutralColor};
   margin: 10px 15px;
   border-radius: 50%;
 `

@@ -5,13 +5,13 @@ type ContainerProps = {
 }
 
 export const Container = styled.div<ContainerProps>`
+  background-color: ${(props) => props.theme.neutralLighter};
+  color: ${(props) => props.theme.textDarker};
   display: flex;
   flex-direction: column;
   padding: 10px 5px;
   border-radius: 15px;
   margin-bottom: 30px;
-  background-color: var(--whiteColor);
-  color: var(--blackColor);
   height: ${(props) => props.isOpen ? '120px' : '70px'};
   transition: height 0.15s;
   max-width: 90vw;
@@ -39,7 +39,7 @@ export const ContentTop = styled.div<ContainerProps>`
     font-weight: 500;
     font-size: 0.9em;
     border-radius: 5px 5px 15px 15px;
-    outline: 4px solid var(--whiteColor);
+    outline: 4px solid ${(props) => props.theme.neutralLighter};
     cursor: pointer;
   }
 
@@ -50,22 +50,22 @@ export const ContentTop = styled.div<ContainerProps>`
   }
 
   .contentTop--interactFields .contentTop--interactFields-btn{
+    background-color: ${(props) => props.theme.primaryColor};
+    color: ${(props) => props.theme.textLighter};
+    border: 1px solid ${(props) => props.theme.lineLighter};
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     width: 35px;
     height: 35px;
-    background-color: var(--primaryColor);
     margin: 0 10px;
     position: absolute;
     z-index: 2;
     top: 40px;
     left: -45px;
     font-size: 1.5em;
-    color: var(--whiteColor);
     cursor: pointer;
-    outline: 1px solid var(--primaryLighter);
     transition: transform 0.35s;
     transform: ${(props) => props.isOpen ? 'rotate(315deg)' : 'none'};
   }
@@ -82,20 +82,20 @@ export const ContentTop = styled.div<ContainerProps>`
   }
 
   .contentTop--interactFields .contentTop--interactFields-order .contentTop--interactFields-order-btn{
+    background-color: ${(props) => props.theme.neutralDarker};
+    color: ${(props) => props.theme.textLighter};
+    border: 2px solid ${(props) => props.theme.neutralLighter};
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--blackDarker);
     width: 35px;
     height: 35px;
-    border: 2px solid var(--whiteColor);
     border-radius: 50%;
-    color: var(--whiteColor);
 
     svg{
       width: 26px;
       height: 26px;
-      border: 4px solid var(--blackDarker);
+      border: 4px solid ${(props) => props.theme.neutralDarker};
       border-radius: 50%;
       transition: 0.45s;
       cursor: pointer;
@@ -103,13 +103,13 @@ export const ContentTop = styled.div<ContainerProps>`
   }
 
   .contentTop--interactFields .contentTop--interactFields-order .contentTop--interactFields-order-btn:hover svg{
-    background-color: var(--primaryColor);
-    border: 2px solid var(--primaryColor);
-    color: var(--blackColor);
+    background-color: ${(props) => props.theme.primaryColor};
+    border: 2px solid ${(props) => props.theme.primaryColor};
+    color: ${(props) => props.theme.textDarker};
   }
 
   .contentTop--interactFields .contentTop--interactFields-order .contentTop--interactFields-order-btn:active svg{
-    filter: drop-shadow(0 0 5px var(--primaryColor));
+    filter: drop-shadow(0 0 5px ${(props) => props.theme.shadowColor});
   }
 
   .contentTop--textsFields{
@@ -120,33 +120,33 @@ export const ContentTop = styled.div<ContainerProps>`
   }
 
   .contentTop--textsFields .contentTop--textsFields-branch{
+    background-color: ${(props) => props.theme.neutralMedium};
+    color: ${(props) => props.theme.textNeutral};
+    border: 1px solid ${(props) => props.theme.lineColor};
     position: relative;
     display: flex;
     border-radius: 30px;
     padding: 5px 10px;
     align-items: center;
-    background-color: var(--blackLighter);
     min-width: 100px;
-    color: var(--whiteDarker);
-    outline: 1px solid var(--primaryColor);
     transition: 0.35s;
     cursor: pointer;
 
     &:active p{
-      filter: drop-shadow(0 0 3px var(--primaryColor));
+      filter: drop-shadow(0 0 3px ${(props) => props.theme.shadowColor});
     }
   }
 
   .contentTop--textsFields .contentTop--textsFields-name{
+    background-color: ${(props) => props.theme.neutralMedium};
+    color: ${(props) => props.theme.textNeutral};
+    border: 1px solid ${(props) => props.theme.lineColor};
     position: relative;
     display: flex;
     align-items: center;
-    background-color: var(--blackLighter);
     border-radius: 30px;
     padding: 5px 10px;
-    color: var(--whiteDarker);
     width: 75%;
-    outline: 1px solid var(--primaryColor);
     transition: 0.35s;
     cursor: pointer;
 
@@ -156,24 +156,24 @@ export const ContentTop = styled.div<ContainerProps>`
     }
 
     &:active p{
-      filter: drop-shadow(0 0 3px var(--primaryColor));
+      filter: drop-shadow(0 0 3px ${(props) => props.theme.shadowColor});
     }
   }
 
   label{
-    color: var(--whiteColor);
+    background-color: ${(props) => props.theme.neutralMedium};
+    color: ${(props) =>  props.theme.textLighter};
+    border-top: 1px solid ${(props) => props.theme.lineColor};
     font-size: 0.70em;
     border-radius: 30px;
     position: absolute;
     top: -9px;
     left: 15px;
-    background-color: var(--blackLighter);
     display: flex;
     justify-content: center;
     align-items: center;
     width: 55px;
     height: 15px;
-    border-top: 1px solid var(--primaryColor);
   }
 
 `
@@ -186,26 +186,26 @@ export const ContentBottom = styled.div<ContainerProps>`
   opacity: ${(props) => props.isOpen ? '1' : '0'};
 
   .contentBottom--textFields{
-    outline: 1px solid var(--primaryColor);
+    background-color: ${(props) => props.theme.neutralMedium};
+    outline: 1px solid ${(props) => props.theme.lineColor};
     border-radius: 30px;
-    background-color: var(--blackLighter);
     cursor: pointer;
     min-height: 30px;
 
     label{
-      color: var(--whiteColor);
+      background-color: ${(props) => props.theme.neutralMedium};
+      color: ${(props) =>  props.theme.textLighter};
+      border-top: 1px solid ${(props) => props.theme.lineColor};
       font-size: 0.70em;
       border-radius: 30px;
       position: absolute;
       top: 2px;
       left: 35px;
-      background-color: var(--blackLighter);
       display: flex;
       justify-content: center;
       align-items: center;
       width: 85px;
       height: 15px;
-      border-top: 1px solid var(--primaryColor);
       z-index: 2;
     }
 
@@ -223,7 +223,7 @@ export const ContentBottom = styled.div<ContainerProps>`
     }
 
     &:active p{
-        filter: drop-shadow(0 0 3px var(--primaryColor));
+        filter: drop-shadow(0 0 3px ${(props) => props.theme.shadowColor});
     }
 
 
@@ -237,43 +237,43 @@ export const ContentBottom = styled.div<ContainerProps>`
   }
 
   .contentBottom--timesActual p{
+    background-color: ${(props) => props.theme.neutralMedium};
+    color: ${(props) => props.theme.textNeutral};
+    border-left: 4px solid ${(props) => props.theme.primaryDarker};
+    border-right: 4px solid ${(props) => props.theme.primaryDarker};
     display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 5px;
-      color: var(--whiteDarker);
-      background-color: var(--blackLighter);
-      min-width: 95px;
-      height: 30px;
-      border-radius: 15px;
-      border-left: 4px solid var(--primaryDarker);
-      border-right: 4px solid var(--primaryDarker);
-      margin: 0 5px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    min-width: 95px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 0 5px;
   }
 
   .contentBottom--timesAdd, .contentBottom--timesDiscount{
     position: relative;
 
     &::after{
+      background-color: ${(props) => props.theme.neutralMedium};
+      color: ${(props) => props.theme.textNeutral};
       content: 'timers';
       position: absolute;
       left: 50%;
       bottom: -4px;
       transform: translateX(-50%);
       font-size: 0.7em;
-      background-color: var(--blackLighter);
       border-radius: 1px 1px 5px 5px;
       padding: 0 5px;
-      color: var(--whiteDarker);
     }
 
     select{
+      background-color: ${(props) => props.theme.neutralMedium};
+      color: ${(props) => props.theme.textNeutral};
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 5px;
-      color: var(--whiteDarker);
-      background-color: var(--blackLighter);
       min-width: 65px;
       height: 25px;
       border-radius: 15px 15px 2px 2px;

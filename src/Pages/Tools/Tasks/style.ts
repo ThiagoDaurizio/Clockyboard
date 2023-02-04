@@ -44,7 +44,7 @@ export const ModalCreateTask = styled.div`
       display: flex;
       width: 100%;
       padding-left: 1.5rem;
-      color: var(--primaryColor);
+      color: ${(props) => props.theme.textColor};
       font-size: 0.75em;
       text-transform: capitalize;
     }
@@ -61,11 +61,11 @@ export const ModalCreateTask = styled.div`
     position: relative;
 
     input{
+      background-color: ${(props) => props.theme.neutralMedium};
+      color: ${(props) => props.theme.textLighter};
+      border: 1px solid ${(props) => props.theme.lineColor};
       width: 100%;
       height: auto;
-      background-color: var(--blackLighter);
-      color: var(--whiteDarker);
-      border: 1px solid var(--whiteDarker);
       border-radius: 15px;
       padding: 5px 10px;
     }
@@ -77,11 +77,11 @@ export const ModalCreateTask = styled.div`
     position: relative;
 
     input{
+      background-color: ${(props) => props.theme.neutralMedium};
+      color: ${(props) => props.theme.textLighter};
+      border: 1px solid ${(props) => props.theme.lineColor};
       width: 95%;
       height: auto;
-      background-color: var(--blackLighter);
-      color: var(--whiteDarker);
-      border: 1px solid var(--whiteDarker);
       border-radius: 15px;
       padding: 5px 10px;
     }
@@ -102,7 +102,7 @@ export const ModalEditTask = styled.div`
   }
 
   .label{
-    color: var(--primaryColor);
+    color: ${(props) => props.theme.textColor};
     text-align: left;
     font-size: 0.75em;
     transform: translateY(-5px);
@@ -128,7 +128,7 @@ export const ModalTimerTask = styled.div<ModalTimerTaskProps>`
     font-size: 2em;
     color: ${(props) => props.setup ? 'var(--optionAccept)' : 'var(--optionDecline)'};
 
-    background-color: var(--blackLighter);
+    background-color: ${(props) => props.theme.neutralMedium};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,7 +147,7 @@ export const ModalStatusTask = styled.div`
   padding: 1rem;
 
   button{
-    color: var(--blackColor);
+    color: ${(props) => props.theme.neutralDarker};
     font-size: 1em;
     font-weight: 600;
     width: 150px;

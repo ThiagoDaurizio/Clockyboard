@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: var(--whiteColor);
-  color: var(--blackColor);
+  background-color: ${(props) => props.theme.neutralLighter};
+  color: ${(props) => props.theme.textDarker};
   width: 265px;
   height: 100%;
   border-radius: 15px;
@@ -18,15 +18,15 @@ export const Container = styled.div`
     gap: 15px;
 
     button{
-      background-color: var(--primaryColor);
+      background-color: ${(props) => props.theme.primaryColor};
+      color: ${(props) => props.theme.textLighter};
+      border: 1px solid ${(props) => props.theme.textLighter};
       width: 150px;
       height: 35px;
       border-radius: 15px;
       font-size: 1em;
-      color: var(--whiteColor);
       cursor: pointer;
       transition: 0.35s;
-      border: 1px solid var(--primaryLighter);
     }
   }
 `
@@ -40,9 +40,8 @@ export const CardStatus = styled.div`
   .contentCard--separator{
     height: 40px;
     min-width: 2px;
-    background-color: var(--blackColor);
+    background-color: ${(props) => props.theme.lineDarker};
   }
-
   .contentCard--info{
     display: flex;
     gap: 5px;
@@ -70,26 +69,26 @@ export const CardStatus = styled.div`
     gap: 5px;
 
     button{
+      background-color: ${(props) => props.theme.neutralDarker};
+      color: ${(props) => props.theme.textLighter};
+      border: 3px solid ${(props) => props.theme.neutralDarker};
       display: flex;
       align-items: center;
       justify-content: center;
       width: 30px;
       height: 30px;
-      background-color: var(--blackColor);
-      color: var(--whiteColor);
       border-radius: 50%;
       transition: 0.35s;
       cursor: pointer;
-      border: 3px solid var(--blackColor);
       font-size: 1.1em;
     
       &:hover{
-        background-color: var(--primaryColor);
-        color: var(--blackColor);
+        background-color: ${(props) => props.theme.primaryColor};
+        color: ${(props) => props.theme.textDarker};
       }
       
       &:active{
-        filter: drop-shadow(0 0 2px var(--primaryColor));
+        filter: drop-shadow(0 0 2px ${(props) => props.theme.primaryColor});
         font-size: 1.2em;
       }
     }
@@ -110,7 +109,7 @@ export const SettingsModalCreateStatus = styled.div`
   }
 
   label{
-    color: var(--primaryColor);
+    color: ${(props) => props.theme.textColor};
     font-size: 0.75em;
   }
 
@@ -120,11 +119,11 @@ export const SettingsModalCreateStatus = styled.div`
     gap: 5px;
 
     input{
+      background-color: ${(props) => props.theme.neutralMedium};
+      color: ${(props) => props.theme.textLighter};
+      border: 1px solid ${(props) => props.theme.lineColor};
       width: 100%;
       height: 30px;
-      background-color: var(--blackLighter);
-      color: var(--whiteDarker);
-      border: 1px solid var(--whiteDarker);
       border-radius: 15px;
       padding: 2px 15px;
     }
@@ -134,6 +133,7 @@ export const SettingsModalCreateStatus = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    text-align: center;
 
     input{
       -webkit-appearance: none;
@@ -162,6 +162,7 @@ export const SettingsModalCreateStatus = styled.div`
   .content--text{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
   }
 
@@ -204,7 +205,7 @@ export const SettingsModalEditStatus = styled.div`
   }
 
   label{
-    color: var(--primaryColor);
+    color: ${(props) => props.theme.textColor};
     font-size: 0.75em;
   }
 
@@ -218,12 +219,13 @@ export const SettingsModalEditStatus = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    text-align: center;
 
     input{
       -webkit-appearance: none;
       width: 75%;
       height: 40px;
-      border-radius: 15px;
+      border-radius: 15px !important;
       cursor: pointer;
       margin: auto;
     }
@@ -246,6 +248,7 @@ export const SettingsModalEditStatus = styled.div`
   .content--text{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
   }
 

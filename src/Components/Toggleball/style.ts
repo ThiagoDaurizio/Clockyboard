@@ -11,9 +11,8 @@ export const Container = styled.div`
     align-items: center;
     width: 60px;
     height: 30px;
-    background-color: var(--whiteDarker);
+    background-color: ${(props) => props.theme.neutralColor};
     border-radius: 15px;
-    outline: 1px solid var(--whiteDarker);
     cursor: pointer;
   }
   
@@ -21,14 +20,16 @@ export const Container = styled.div`
     transform: translateX(2px);
     width: 26px;
     height: 26px;
-    background-color: var(--whiteColor);
+    background-color: ${(props) => props.theme.neutralLighter};
+    opacity: 0.35;
     border-radius: 50%;
     transition: 0.45s;
     filter: drop-shadow(0 0 1px var(--darker));
   }
 
   label input:checked ~ span{
-    background-color: var(--primaryColor);
+    background-color: ${(props) => props.theme.primaryColor};
+    opacity: 1;
     transform: translateX(calc(60px - 28px));
   }
 
