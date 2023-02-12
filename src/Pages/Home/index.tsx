@@ -4,19 +4,24 @@ import { useRef, useState } from 'react'
 import { ModalConfirm } from '../../Components/Modal/ModalConfirm'
 import { ModalPrompt } from '../../Components/Modal/ModalPrompt'
 import * as StyleBase from '../../Styles/ModalStyle'
+import { CompInputCamp } from '../../Components/InputCamp'
 
 export const PageHome = () => {
-  const [text, set_text] = useState<any>()
-  const textareaRef: any = useRef()
+  const [text, set_text] = useState<string>('')
+  const [text2, set_text2] = useState<string>('')
 
   return(
     <Style.Container>
-      <button className='info' onClick={() => console.log(textareaRef.current)}>INFO</button>
-      <p>{text}</p>
-      <textarea
-        ref={textareaRef}
-        value={text}
-        onChange={(event) => set_text(event.target.value)}
+      <CompInputCamp 
+        inputText={text}
+        set_inputText={set_text}
+        labelText={'set an description'}
+      />
+
+      <CompInputCamp 
+        inputText={text2}
+        set_inputText={set_text2}
+        labelText={'set an role'}
       />
     </Style.Container>
   )

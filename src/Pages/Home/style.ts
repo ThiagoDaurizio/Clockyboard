@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
+  background-color: pink;
+  width: 400px;
+  height: 400px;
 
   .info{
     background: white;
@@ -9,12 +12,6 @@ export const Container = styled.div`
     right: 0;
     top: 0;
     padding: 10px;
-  }
-
-  input, textarea{
-    width: 250px;
-    height: 250px;
-    background-color: var(--lighter);
   }
 
 
