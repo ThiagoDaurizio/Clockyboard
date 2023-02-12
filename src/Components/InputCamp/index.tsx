@@ -6,7 +6,7 @@ type Props = {
   labelText: string
 }
 
-export const CompInputCamp = ( {inputText, set_inputText, labelText}: Props ) => {
+export const CompInputCamp = ({ inputText, set_inputText, labelText }: Props) => {
 
   return (
     <Style.Container isEmpity={inputText}>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 type Props = {
-	isEmpity: string
+  isEmpity: string
 }
 
 export const Container = styled.div<Props>`
