@@ -11,6 +11,7 @@ import { IoOpenOutline, IoCheckmarkDoneOutline } from "react-icons/io5"
 import { useNotesContext } from '../../../Context/NotesContext'
 import { idMaker } from '../../../Utilities/idMaker'
 import { CompEditCamp } from '../../../Components/EditCamp'
+import { CompInputCamp } from '../../../Components/InputCamp'
 
 
 export const PageNotes = () => {
@@ -215,24 +216,25 @@ export const PageNotes = () => {
         {toRenderNotesCard}
       </div>
 
+      
       {modalOnCreateNote &&(
         <ModalPrompt
-        modalOpened={modalOnCreateNote}
-        set_modalOpened={set_modalOnCreateNote}
-        modalWidth={'fit-content'}
-        modalHeight={'fit-content'}
+          modalOpened={modalOnCreateNote}
+          set_modalOpened={set_modalOnCreateNote}
+          modalWidth={'fit-content'}
+          modalHeight={'fit-content'}
         >
           <Style.ModalCreateNote>
             <h2>Create an Note</h2>
 
             <section>
-              <input 
-                className={'_active'}
-                value={inputTitle}
-                onChange={(event) => set_inputTitle(event.target.value)}
-                placeholder={'write something...'}
+              <CompInputCamp 
+                inputText={inputTitle}
+                set_inputText={set_inputTitle}
+                labelText={'write something...'}
               />
-              <div className='modal--createNote-toggle'>
+
+              <div>
                 <p className={inputToggleTitle ? '_active' : ''}>Is a title</p>
                 <CompToggle 
                   toggle={inputToggleTitle} 
@@ -243,33 +245,35 @@ export const PageNotes = () => {
 
             <section>
               <div className='modal--createNote-toggle'>
+                <p className={inputToggleText1 ? '_active' : ''}>Text #1</p>
                 <CompToggle 
                   toggle={inputToggleText1} 
                   set_toggle={set_inputToggleText1}
                 />
-                <p className={inputToggleText1 ? '_active' : ''}>Text #1</p>
               </div>
-              <input 
-                className={inputToggleText1 ? '_active' : ''}
-                value={inputText1}
-                onChange={(event) => set_inputText1(event.target.value)}
-                placeholder={'write something...'}
+
+              <CompInputCamp 
+                inputText={inputText1}
+                set_inputText={set_inputText1}
+                labelText={'write something...'}
+                style={{opacity: inputToggleText1 ? 1 : 0, pointerEvents: inputToggleText1 ? 'all' : 'none'}}
               />
             </section>
 
             <section>
               <div className='modal--createNote-toggle'>
+                <p className={inputToggleText2 ? '_active' : ''}>Text #2</p>
                 <CompToggle 
                   toggle={inputToggleText2} 
                   set_toggle={set_inputToggleText2}
                 />
-                <p className={inputToggleText2 ? '_active' : ''}>Text #2</p>
               </div>
-              <input 
-                className={inputToggleText2 ? '_active' : ''}
-                value={inputText2}
-                onChange={(event) => set_inputText2(event.target.value)}
-                placeholder={'write something...'}
+
+              <CompInputCamp 
+                inputText={inputText2}
+                set_inputText={set_inputText2}
+                labelText={'write something...'}
+                style={{opacity: inputToggleText2 ? 1 : 0, pointerEvents: inputToggleText2 ? 'all' : 'none'}}
               />
             </section>
 

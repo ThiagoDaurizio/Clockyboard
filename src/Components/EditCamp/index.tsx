@@ -1,18 +1,21 @@
 import * as Style from './style'
 import { IoOpenOutline, IoCheckmarkDoneOutline } from "react-icons/io5";
+import { CompInputCamp } from '../InputCamp';
 
 type Props = {
   editToggle: boolean
   set_editToggle: React.Dispatch<React.SetStateAction<boolean>>
   campText: string
-  set_campText: React.Dispatch<React.SetStateAction<string>>
+  set_campText: React.Dispatch<React.SetStateAction<string>>,
+  labelText?: string
 }
 
 export const CompEditCamp = ({
   editToggle,
   set_editToggle,
   campText,
-  set_campText
+  set_campText,
+  labelText
 }: Props) => {
 
 
@@ -32,11 +35,10 @@ export const CompEditCamp = ({
       }
 
       {editToggle ?
-        <input 
-          value={campText}
-          onChange={(event) => set_campText(event.target.value)}
-          placeholder={'write something...'}
-          onKeyDown={(event) => handleKeyboard(event.key)}
+        <CompInputCamp
+          inputText={campText}
+          set_inputText={set_campText}
+          labelText={labelText}
         />
         :
         <p>{campText}</p>

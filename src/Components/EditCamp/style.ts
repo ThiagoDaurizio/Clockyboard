@@ -27,17 +27,6 @@ export const Container = styled.section`
     font-weight: 500;
   }
 
-  input {
-    width: 100%;
-    height: 100%;
-    background-color: ${(props) => props.theme.blackLighter};
-    color: ${(props) => props.theme.textLighter};
-    border: 1px solid ${(props) => props.theme.lineLighter};
-    border-radius: 15px;
-    padding: 1rem;
-    max-width: 260px;
-  }
-
   svg{
     font-size: 1.75em;
     color: ${(props) => props.theme.textColor};
