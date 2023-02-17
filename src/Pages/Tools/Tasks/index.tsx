@@ -13,6 +13,7 @@ import { CompCountCamp } from '../../../Components/CountCamp'
 import { useTasksContext } from '../../../Context/TasksContext'
 import { useLabelsContext } from '../../../Context/LabelsContext'
 import { useStatusContext } from '../../../Context/StatusContext'
+import { CompInputCamp } from '../../../Components/InputCamp'
 
 
 export const PageTimers = () => {
@@ -255,32 +256,27 @@ export const PageTimers = () => {
           <Style.ModalCreateTask>
             <h2>Create Task</h2>
 
-            <section className='createTask--name'>
-              <div className='createTask--content'>
-                <label>Name</label>
-                <input 
-                  value={inputTaskName}
-                  onChange={(event) => set_inputTaskName(event.target.value)}
-                  placeholder={'write an name'}
-                />
-              </div>
+            <section>
+              <CompInputCamp 
+                inputText={inputTaskName}
+                set_inputText={set_inputTaskName}
+                labelText={'Name'}
+              />
             </section>
 
-            <section className='createTask--extras'>
-              <div className='createTask--content'>
-                <label>{dataLabels[0]}</label>
-                <input 
-                  value={inputTaskLabel1}
-                  onChange={(event) => set_inputTaskLabel1(event.target.value)}
-                  placeholder={`write an ${dataLabels[0]}`}
-                  />
+            <section className='createTask--row'>
+              <div className='createTask--row-inputs'>
+                <CompInputCamp 
+                  inputText={inputTaskLabel1}
+                  set_inputText={set_inputTaskLabel1}
+                  labelText={dataLabels[0]}
+                />
               </div>
-              <div className='createTask--content'>
-                <label>{dataLabels[1]}</label>
-                <input 
-                  value={inputTaskLabel2}
-                  onChange={(event) => set_inputTaskLabel2(event.target.value)}
-                  placeholder={`write an ${dataLabels[1]}`}
+              <div className='createTask--row-inputs'>
+                <CompInputCamp 
+                  inputText={inputTaskLabel2}
+                  set_inputText={set_inputTaskLabel2}
+                  labelText={dataLabels[1]}
                 />
               </div>
             </section>
@@ -316,6 +312,7 @@ export const PageTimers = () => {
                 set_editToggle={set_editToggleTaskName}
                 campText={inputTaskName}
                 set_campText={set_inputTaskName}
+                labelText={'Name'}
               />
             </section>
 
@@ -326,6 +323,7 @@ export const PageTimers = () => {
                 set_editToggle={set_editToggleTaskLabel1}
                 campText={inputTaskLabel1}
                 set_campText={set_inputTaskLabel1}
+                labelText={dataLabels[0]}
               />
             </section>
 
@@ -336,6 +334,7 @@ export const PageTimers = () => {
                 set_editToggle={set_editToggleTaskLabel2}
                 campText={inputTaskLabel2}
                 set_campText={set_inputTaskLabel2}
+                labelText={dataLabels[1]}
               />
             </section>
 

@@ -6,15 +6,13 @@ export const Container = styled.div`
 
 `
 
-
-
-
 export const ModalCreateNote = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
   width: 400px;
   max-width: 90vw;
+  padding: 0 15px;
 
   h2{
     width: 100%;
@@ -24,49 +22,30 @@ export const ModalCreateNote = styled.div`
   section{
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     gap: 1rem;
+    position: relative;
+  }
 
-    input{
-      background-color: ${(props) => props.theme.neutralMedium};
-      color: ${(props) => props.theme.textColor};
-      border: 1px solid ${(props) => props.theme.lineColor};
-      border-radius: 15px;
-      padding: 5px 10px;
-      position: relative;
-      transition: 0.25s;
-      opacity: 0;
-      z-index: -1;
-      width: 100%;
-    
-      &:focus{
-        color: ${(props) => props.theme.textLighter};
-      }
-    }
+  p{
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    font-size: 0.75em;
+    font-weight: 500;
+    transition: 0.25s;
+    opacity: 0;
+  }
 
-    input._active{
-      opacity: 1;
-      z-index: auto;
-    }
-  
-    .modal--createNote-toggle{
-      position: relative;
-    }
+  p._active{
+    color: ${(props) => props.theme.textColor};
+    opacity: 1;
+  }
 
-    .modal--createNote-toggle p{
-      position: absolute;
-      font-size: 0.75em;
-      width: 100%;
-      bottom: -17px;
-      font-weight: 500;
-      transition: 0.25s;
-      opacity: 0;
-    }
-
-    .modal--createNote-toggle p._active{
-      color: ${(props) => props.theme.textColor};
-      opacity: 1;
-    }
+  .modal--createNote-toggle p{
+    left: 10px;
+    text-align: left;
   }
 `
 
@@ -86,6 +65,7 @@ export const ModalEditNote = styled.div`
     gap: 0.5rem;
     align-items: center;
     height: 30px;
+    width: 100%;
     
     &:last-child{
       justify-content: center;

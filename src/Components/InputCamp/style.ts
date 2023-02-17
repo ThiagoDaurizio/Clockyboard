@@ -6,6 +6,8 @@ type Props = {
 
 export const Container = styled.div<Props>`
   margin: 15px 0;
+  width: 100%;
+  transition: .75s opacity;
 
   label{
     display: flex;

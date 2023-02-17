@@ -22,7 +22,7 @@ export const ModalCreateTask = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 400;
+  width: 400px;
   max-width: 90vw;
   gap: 2rem;
   padding: 2rem;
@@ -31,60 +31,19 @@ export const ModalCreateTask = styled.div`
     text-align: center;
   }
 
-  input{
-    border: 1px solid black;
+  section{
+    width: 100%;
+    padding: 0 20px;
   }
-
-  .createTask--content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    label{
-      display: flex;
-      width: 100%;
-      padding-left: 1.5rem;
-      color: ${(props) => props.theme.textColor};
-      font-size: 0.75em;
-      text-transform: capitalize;
-    }
-  }
-
-  .createTask--content:nth-child(2) label{
-    display: flex;
-    justify-content: flex-end;
-    padding-left: 0;
-    padding-right: 1.5rem;
-  }
-
-  .createTask--name{
-    position: relative;
-
-    input{
-      background-color: ${(props) => props.theme.neutralMedium};
-      color: ${(props) => props.theme.textLighter};
-      border: 1px solid ${(props) => props.theme.lineColor};
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      padding: 5px 10px;
-    }
-  }
-
-  .createTask--extras{
+  
+  .createTask--row{
     display: flex;
     justify-content: space-between;
-    position: relative;
+    gap: 1rem;
+  }
 
-    input{
-      background-color: ${(props) => props.theme.neutralMedium};
-      color: ${(props) => props.theme.textLighter};
-      border: 1px solid ${(props) => props.theme.lineColor};
-      width: 95%;
-      height: auto;
-      border-radius: 15px;
-      padding: 5px 10px;
-    }
+  .createTask--row-inputs{
+    width: 50%;
   }
 `
 
@@ -105,7 +64,7 @@ export const ModalEditTask = styled.div`
     color: ${(props) => props.theme.textColor};
     text-align: left;
     font-size: 0.75em;
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
 `
 
