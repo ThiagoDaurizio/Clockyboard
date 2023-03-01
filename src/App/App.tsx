@@ -10,6 +10,7 @@ import { StatusContextProvider } from '../Context/StatusContext';
 import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
 import { themeClassic } from '../Themes/colors';
+import { CompNavBall } from '../Components/Navball';
 
 export const LocalStorageAppStart = {
   dataTasks: [],
@@ -27,9 +28,9 @@ export const App = () => {
             <TasksContextProvider>
               <NotesContextProvider>
 
-
+              <Style.ViewPort>
                 <Style.Container>
-                  <CompSidebar/>
+                  <CompNavBall />
 
                   <Style.Content>
                     <Router/>
@@ -37,6 +38,7 @@ export const App = () => {
 
                   <GlobalStyle/>
                 </Style.Container>
+              </Style.ViewPort>
 
 
               </NotesContextProvider>
