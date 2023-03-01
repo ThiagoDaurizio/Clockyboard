@@ -14,14 +14,3 @@ export const Container = styled.div`
     text-align: center;
   }
 `
-
-
-const teste = {
-  cris: '45',
-  jonas: '22',
-  stephan: '26'
-}
-
-const variavel = 'cris'
-
-const outra = teste[variavel]
