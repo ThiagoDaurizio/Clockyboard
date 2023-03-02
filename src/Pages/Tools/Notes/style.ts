@@ -3,7 +3,43 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
+  .notes--container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
 
+    max-height: 85vh;
+    overflow-y: scroll;
+    border: 1px solid ${(props) => props.theme.neutralColor};
+    border-radius: 6px;
+    margin-top: 1rem;
+
+      /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+      transition: 0.35s;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: var(--lighter);
+      border-radius: 0 5px 5px 0;
+      transition: 0.35s;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: ${(props) => props.theme.neutralColor};
+      border-radius: 0 5px 5px 0;
+      transition: 0.35s;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: ${(props) => props.theme.primaryColor};
+    }
+  }
 `
 
 export const ModalCreateNote = styled.div`

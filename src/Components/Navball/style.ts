@@ -26,7 +26,7 @@ export const Navball = styled.div<NavballProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   min-width: fit-content;
   height: fit-content;
   color: blue;
@@ -40,7 +40,7 @@ export const Navball = styled.div<NavballProps>`
   }
 
   ul{
-    background-color: ${(props) => props.theme.sidebarBackground};
+    background-color: ${(props) => props.theme.navbarBackground};
     border-right: 1px solid ${(props) => props.theme.lineLighter};
     border-left: 1px solid ${(props) => props.theme.lineLighter};
     display: flex;
@@ -55,7 +55,7 @@ export const Navball = styled.div<NavballProps>`
   }
 
   li{
-    background-color: ${(props) => props.theme.sidebarBackground};
+    background-color: ${(props) => props.theme.navbarBackground};
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -106,7 +106,7 @@ export const Navball = styled.div<NavballProps>`
     position: relative;
 
     svg{
-      background-color: ${(props) => props.theme.sidebarBackground};
+      background-color: ${(props) => props.theme.navbarBackground};
       color: ${(props) => props.theme.textColor};
       border: 2px solid ${(props) => props.theme.lineLighter};
       position: absolute;

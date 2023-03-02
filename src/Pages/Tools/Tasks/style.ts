@@ -9,6 +9,7 @@ export const Container = styled.div`
 
 export const ContentTasks = styled.div`
   margin-top: 3rem;
+  margin-bottom: 3rem;
 
   ul{
     display: flex;

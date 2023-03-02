@@ -33,7 +33,9 @@ export const themeClassic = {
   whiteDarker: '#c7c7c7',
 
   modalBackground: '#fafafa',
-  sidebarBackground: '#000000',
+  
+  navbarPrimary: '#dfdfdf',
+  navbarBackground: '#000000',
 
 
   backgroundImage: 'url(/images//backgroundOrbit.jpg)',

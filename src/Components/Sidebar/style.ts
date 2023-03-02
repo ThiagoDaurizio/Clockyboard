@@ -17,7 +17,7 @@ export const Sidebar = styled.div`
   width: 50px;
   
   .sidebar{
-    background-color: ${(props) => props.theme.sidebarBackground};
+    background-color: ${(props) => props.theme.navbarBackground};
     width: 100%;
     padding: 1rem;
     transition: 0.35s;
