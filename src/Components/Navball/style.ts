@@ -104,6 +104,7 @@ export const Navball = styled.div<NavballProps>`
     border-radius: 25px 25px 0 0;
     width: 100%;
     position: relative;
+    box-shadow: 0 0 5px black; 
 
     svg{
       background-color: ${(props) => props.theme.navbarBackground};
