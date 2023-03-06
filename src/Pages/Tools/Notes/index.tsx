@@ -212,7 +212,7 @@ export const PageNotes = () => {
         openMore={true}
       />
 
-      <div style={{display: 'flex', flexWrap: 'wrap', gap: '1.5rem'}}>
+      <div className='notes--container'>
         {toRenderNotesCard}
       </div>
 

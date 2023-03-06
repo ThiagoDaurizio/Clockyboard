@@ -27,7 +27,7 @@ export const CompNavBall = () => {
   }
 
   const handleMenuLink = (option: string) => {
-    localStorage.setItem('', option)
+    localStorage.setItem('daurizioClockyboardMenu', option)
     set_actualPage(option)
   }
 
@@ -59,7 +59,6 @@ export const CompNavBall = () => {
 
   return(
     <Style.Container>
-      <button onClick={() => console.log(menu)}>INFO</button>
       {!isClosed &&(
         <Style.Backdrop id={'backdrop'} onClick={(event: any) => handleBackdrop(event)}/>
       )}
