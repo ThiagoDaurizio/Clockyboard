@@ -7,6 +7,7 @@ import { useLabelsContext } from '../../../../Context/LabelsContext';
 import { useStatusContext } from '../../../../Context/StatusContext';
 import { TypedStatus } from '../../../../Types/statusType';
 import { useTasksContext } from '../../../../Context/TasksContext';
+import { CompOptionBall } from '../../../../Components/OptionBall';
 
 type Props = {
   task: TypedTasks
@@ -105,9 +106,27 @@ export const CompTasksCard = ({
         <div className='contentTop--interactFields'>
           <div className='contentTop--interactFields-btn' onClick={handleOpenDisplay}>+</div>
           <div className='contentTop--interactFields-order'>
-            <div className='contentTop--interactFields-order-btn' onClick={() => handleBoxInteract('edit')}> <IoOpenOutline/> </div>
-            <div className='contentTop--interactFields-order-btn' onClick={() => handleBoxInteract('timer')}> <IoAlarmOutline/> </div>
-            <div className='contentTop--interactFields-order-btn' onClick={() => handleBoxInteract('delete')}> <IoTrashBinOutline/> </div>
+            <span onClick={() => handleBoxInteract('edit')}>
+              <CompOptionBall
+                labelIcon={<IoOpenOutline/>}
+                labelText={'Edit'}
+                hasTooltip={true}
+              />
+            </span>
+            <span onClick={() => handleBoxInteract('timer')}>
+              <CompOptionBall
+                labelIcon={<IoAlarmOutline/>}
+                labelText={'Timer'}
+                hasTooltip={true}
+              />
+            </span>
+            <span onClick={() => handleBoxInteract('delete')}>
+              <CompOptionBall
+                labelIcon={<IoTrashBinOutline/>}
+                labelText={'Delete'}
+                hasTooltip={true}
+              />
+            </span>
           </div>
         </div>
 

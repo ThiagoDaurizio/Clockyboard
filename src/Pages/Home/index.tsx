@@ -5,6 +5,9 @@ import { ModalConfirm } from '../../Components/Modal/ModalConfirm'
 import { ModalPrompt } from '../../Components/Modal/ModalPrompt'
 import * as StyleBase from '../../Styles/ModalStyle'
 import { CompInputCamp } from '../../Components/InputCamp'
+import { CompOptionBall } from '../../Components/OptionBall'
+import { IoOpenOutline, IoTrashBinOutline } from "react-icons/io5";
+
 
 export const PageHome = () => {
   const [text, set_text] = useState<string>('')
@@ -12,17 +15,7 @@ export const PageHome = () => {
 
   return (
     <Style.Container>
-      <CompInputCamp
-        inputText={text}
-        set_inputText={set_text}
-        labelText={'set an description'}
-      />
-
-      <CompInputCamp
-        inputText={text2}
-        set_inputText={set_text2}
-        labelText={'set an role'}
-      />
+      Home
     </Style.Container>
   )
 }

@@ -81,37 +81,6 @@ export const ContentTop = styled.div<ContainerProps>`
     z-index: ${(props) => props.isOpen ? '1' : '-1'};
   }
 
-  .contentTop--interactFields .contentTop--interactFields-order .contentTop--interactFields-order-btn{
-    background-color: ${(props) => props.theme.neutralDarker};
-    color: ${(props) => props.theme.textLighter};
-    border: 2px solid ${(props) => props.theme.neutralLighter};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-
-    svg{
-      width: 26px;
-      height: 26px;
-      border: 4px solid ${(props) => props.theme.neutralDarker};
-      border-radius: 50%;
-      transition: 0.45s;
-      cursor: pointer;
-    }
-  }
-
-  .contentTop--interactFields .contentTop--interactFields-order .contentTop--interactFields-order-btn:hover svg{
-    background-color: ${(props) => props.theme.primaryColor};
-    border: 2px solid ${(props) => props.theme.primaryColor};
-    color: ${(props) => props.theme.textDarker};
-  }
-
-  .contentTop--interactFields .contentTop--interactFields-order .contentTop--interactFields-order-btn:active svg{
-    filter: drop-shadow(0 0 5px ${(props) => props.theme.shadowColor});
-  }
-
   .contentTop--textsFields{
     margin-top: 20px;
     display: flex;
