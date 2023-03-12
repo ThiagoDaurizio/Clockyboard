@@ -2,6 +2,7 @@ import { TypedNotes } from '../../../../Types/notesType'
 import * as Style from './style'
 import { IoOpenOutline, IoHeartOutline, IoTrashBinOutline, IoHeartSharp } from "react-icons/io5";
 import { useState } from 'react';
+import { CompOptionBall } from '../../../../Components/OptionBall';
 
 type Props = {
   note: TypedNotes
@@ -69,6 +70,27 @@ export const CompNotesCard = ({
         {note.subText2 && <p onClick={() => handleCopyText('subtext2')}>{note.subText2}</p>}
       </Style.Content>
       <Style.Interact id={'noteBox'} boxOpened={boxOpened} onClick={handleBox}>
+        {/* <span onClick={() => handleBoxInteract('edit')}>
+          <CompOptionBall
+            labelIcon={<IoTrashBinOutline/>}
+            labelText={'Edit'}
+            hasTooltip={true}
+          />
+        </span>
+        <span onClick={() => handleBoxInteract('mark')}>
+          <CompOptionBall
+            labelIcon={<IoHeartOutline/>}
+            labelText={'Mark'}
+            hasTooltip={true}
+          />
+        </span>
+        <span onClick={() => handleBoxInteract('delete')}>
+          <CompOptionBall
+            labelIcon={<IoTrashBinOutline/>}
+            labelText={'Delete'}
+            hasTooltip={true}
+          />
+        </span> */}
         <span onClick={() => handleBoxInteract('edit')}><IoOpenOutline/></span>
         <span onClick={() => handleBoxInteract('mark')}><IoHeartOutline/></span>
         <span onClick={() => handleBoxInteract('delete')}><IoTrashBinOutline/></span>
